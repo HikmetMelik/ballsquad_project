@@ -1,7 +1,10 @@
-import 'package:ballsquad_project/bloc/authors.dart';
+import 'package:ballsquad_project/feature/authors/model/authors.dart';
+import 'package:equatable/equatable.dart';
 
-abstract class AuthorsState {
+abstract class AuthorsState extends Equatable {
   const AuthorsState();
+  @override
+  List<Object> get props => [];
 }
 
 class AuthorsInitial extends AuthorsState {
@@ -13,18 +16,10 @@ class AuthorsLoading extends AuthorsState {
 }
 
 class AuthorsLoaded extends AuthorsState {
-  final List<Authors> response;
-
+  final Authors response;
   const AuthorsLoaded(this.response);
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
-
-    return o is AuthorsLoaded && o.response == response;
-  }
-
-  @override
-  int get hashCode => response.hashCode;
+  List<Object> get props => [response];
 }
 
 class AuthorsError extends AuthorsState {
