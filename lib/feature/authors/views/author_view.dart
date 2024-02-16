@@ -1,16 +1,14 @@
-import 'package:ballsquad_project/feature/authors/bloc/authors_cubit.dart';
-import 'package:ballsquad_project/feature/authors/bloc/authors_state.dart';
-import 'package:ballsquad_project/feature/authors/views/author_detail_view.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ballsquad_project/product/base/constants/app_constants.dart';
 
-class AuthorsView extends StatefulWidget {
+import '../../../exports.dart';
+
+final class AuthorsView extends StatefulWidget {
   const AuthorsView({super.key});
   @override
   State<AuthorsView> createState() => _AuthorsViewState();
 }
 
-class _AuthorsViewState extends State<AuthorsView> {
+final class _AuthorsViewState extends State<AuthorsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,14 +45,13 @@ class _AuthorsViewState extends State<AuthorsView> {
               },
               builder: (context, state) {
                 if (state is AuthorsInitial) {
-                  return const Center(
-                    child: Row(
-                      children: [
-                        Icon(Icons.search),
-                        SizedBox(width: 10),
-                        Text('Search for authors'),
-                      ],
-                    ),
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.emoji_people_outlined, size: 50),
+                      const SizedBox(width: 10),
+                      Text(AppConstants.initialPageMessage),
+                    ],
                   );
                 } else if (state is AuthorsLoading) {
                   return const Center(

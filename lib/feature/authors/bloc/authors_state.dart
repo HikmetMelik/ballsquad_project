@@ -1,5 +1,6 @@
-import 'package:ballsquad_project/feature/authors/model/authors.dart';
 import 'package:equatable/equatable.dart';
+
+import '../../../exports.dart';
 
 abstract class AuthorsState extends Equatable {
   const AuthorsState();
@@ -7,22 +8,22 @@ abstract class AuthorsState extends Equatable {
   List<Object> get props => [];
 }
 
-class AuthorsInitial extends AuthorsState {
+final class AuthorsInitial extends AuthorsState {
   const AuthorsInitial();
 }
 
-class AuthorsLoading extends AuthorsState {
+final class AuthorsLoading extends AuthorsState {
   const AuthorsLoading();
 }
 
-class AuthorsLoaded extends AuthorsState {
+final class AuthorsLoaded extends AuthorsState {
   final Authors response;
   const AuthorsLoaded(this.response);
   @override
   List<Object> get props => [response];
 }
 
-class AuthorsError extends AuthorsState {
+final class AuthorsError extends AuthorsState {
   final String message;
 
   const AuthorsError(this.message);

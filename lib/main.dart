@@ -1,8 +1,4 @@
-import 'package:ballsquad_project/feature/authors/bloc/authors_cubit.dart';
-import 'package:ballsquad_project/feature/authors/views/author_view.dart';
-import 'package:ballsquad_project/feature/authors/repo/authors_repo.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ballsquad_project/exports.dart';
 
 void main() {
   runApp(const MyApp());

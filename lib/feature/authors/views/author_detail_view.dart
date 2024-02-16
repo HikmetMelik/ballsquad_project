@@ -1,9 +1,9 @@
-import 'package:ballsquad_project/feature/authors/model/authors.dart';
-import 'package:flutter/material.dart';
+import '../../../exports.dart';
 
 final class AuthorDetailsPage extends StatelessWidget {
   const AuthorDetailsPage({super.key, required this.authorDetails, Docs? author});
   final Docs authorDetails;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

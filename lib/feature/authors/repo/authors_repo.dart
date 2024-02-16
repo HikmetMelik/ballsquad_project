@@ -1,14 +1,14 @@
 import 'dart:io';
-
-import 'package:ballsquad_project/feature/authors/model/authors.dart';
+import 'package:ballsquad_project/product/base/constants/app_constants.dart';
 import 'package:dio/dio.dart';
+import '../../../exports.dart';
 
 abstract class AuthorsRepo {
   Future<Authors> getAuthors(String value);
 }
 
-class SampleAuthorsRepo implements AuthorsRepo {
-  final baseUrl = 'https://openlibrary.org/search/authors.json?q=';
+final class SampleAuthorsRepo implements AuthorsRepo {
+  final baseUrl = AppConstants.baseUrl;
   late final Dio _dio;
   SampleAuthorsRepo() {
     _dio = Dio(
@@ -27,7 +27,7 @@ class SampleAuthorsRepo implements AuthorsRepo {
         final Authors authors = Authors.fromJson(data);
         return authors;
       } else {
-        throw NetworkError('Failed to fetch authors');
+        throw NetworkError(AppConstants.errorMessage);
       }
     } catch (error) {
       throw NetworkError('Error: $error');
@@ -35,7 +35,7 @@ class SampleAuthorsRepo implements AuthorsRepo {
   }
 }
 
-class NetworkError implements Exception {
+final class NetworkError implements Exception {
   final String message;
   NetworkError(this.message);
 }
